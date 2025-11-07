@@ -13,7 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //Registrar el middleware personalizado de API key
-        $middleware->alias(['api.key' => App\Http\Middleware\ApiKeyMiddleware::class]);
+        $middleware->alias([
+            'api.key' => App\Http\Middleware\ApiKeyMiddleware::class,
+            'jwt.auth' => App\Http\Middleware\JWTAuthMiddleware::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
