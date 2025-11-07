@@ -173,14 +173,6 @@ class User extends Controller
             ], 500);
         }
     }
-
-    //Metodo para mostrar todos los usuarios (para pruebas)
-    public function index()
-    {
-        $users = UserModel::all();
-        return response()->json(['data' => $users], 200);
-    }
-
     // Método para actualizar usuario
     public function update(Request $request, $id)
     {
